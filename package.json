@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "tsc",
     "start": "node ./server/app.js",
     "start-watch": "nodemon ./server/app.js",
     "compile-watch": "tsc -w"
