@@ -6,5 +6,7 @@
 
 node_modules
 *.js
+!public/js/lib/*.js
 *.js.map
 package-lock.json
+.DS_Store

@@ -21,7 +21,19 @@ io.on('connection', (socket) => {
 
     socket.broadcast.emit('newMessage', Message.from('New user joined', 'admin'));
 
-    socket.on('createMessage', (message: Message) => io.emit('newMessage', Message.from(message.text, message.from)));
+    socket.on('createMessage', (message: Message, cb) => {
+        if (!message || !message.text) {
+            cb({
+                status: 'fail',
+                error: 'Message is not correct'
+            });
+        } else {
+            io.emit('newMessage', Message.from(message.text, message.from));
+            cb({
+                status: 'success'
+            });
+        }
+    });
 });
 
 
