@@ -10,6 +10,7 @@ export class Message {
     }
 
     static from(text: string, from: string, created = new Date().toLocaleTimeString()) {
-        return new Message(text, from, created);
+        const arr = created.split(":");
+        return new Message(text, from, `${arr[0]}:${arr[1]}`);
     }
 }
